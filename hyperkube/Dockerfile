@@ -16,5 +16,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y \
 
 RUN cp /usr/bin/nsenter /nsenter
 
-COPY ./kubernetes/_output/dockerized/bin/linux/amd64/hyperkube /hyperkube
+COPY ./hyperkube /hyperkube
 

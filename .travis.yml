@@ -1,18 +1,17 @@
 sudo: required
-
 go:
 - 1.4
-
 env:
   global:
-  - IMAGE_NAME=thesamet-docker-registry.bintray.io/kubernetes/hyperkube:${TRAVIS_COMMIT:8}
-
+  - LABEL=v1.1.0
+  - IMAGE_NAME=thesamet-docker-registry.bintray.io/kubernetes/hyperkube:$LABEL-${TRAVIS_COMMIT:8}
+  - secure: n30AbOAC/oKX8oN8Gh47IIYTmjEv5VeGEqwh9AIbMVZO4ieRyhCw+FU1nZDgMfOVQQYrTW591m7Guu0HlOaQj1tWboujMa0W0tbfCQg7GAaqfR+1Y00zbNEvR2k2sRpd5k+mGoes9ad817O3GNd4BCqQKWCIHXNCyH9dhQyuG2in2td6rxO5rrdu8vSCVMtPsPqYx/zJmu8b9B5FaIA495OBR1G54PGqmQsfLb3OAhkb95YJt+Ib/0FIqkfyFT2E+bIRoEsVXJViysNEf7+s7xLkh8Ih4xnbof5lyx9R9rALFpcrlvFvnS/C8DuTh9lkfuxKaTf4/msV1kVxvnJu0yGUsrCdvlH4rnMnWYb1baLji4BOK6sSzxdgHVLyNUJOAFsX757+mN9ja96TRXC0/odQSR1INNkY7aHVCoiYoHYtVJrO6OfveDQfrYzUgFBF9bWyIfTAJhkDljRv/B9TeEukrA02m82UY9kt3T388+JqpdaE65P20g9Qk65BI/4vS23Ak6zUim+Z8Pt8fzQBPp3Aww3kmFRW/KcCfrZnQ++ZtxC/D5Q/IzmsrFnXMoZDcdbuZJh2ekuLTLIueabTfLIKCBm6vJAqYFW2d9GKQ/9IkYxyc2b0CPyvRyqFHFGO0mIrdBxoA3pMtzvqVVOLfn9LcpDOsQPuClC4tOwIQvI=
 services:
 - docker
-
 script:
 - git clone https://github.com/kubernetes/kubernetes.git --branch v1.1.0
-- cd kubernetes && KUBE_SKIP_CONFIRMATIONS=y ./build/run.sh hack/build-go.sh
+- docker login -e thesamet@gmail.com -u thesamet -p $BINTRAY_API_KEY https://thesamet-docker-registry.bintray.i
+- KUBE_SKIP_CONFIRMATIONS=y ./kubernetes/build/run.sh hack/build-cross.sh
 - docker build -t $IMAGE_NAME .
 - docker push $IMAGE_NAME
 

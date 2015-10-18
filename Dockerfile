@@ -1,4 +1,8 @@
-FROM ubuntu:trusty
+# Slightly modified version of kubernetes.git/cluster/images/hyperkube/Dockerfile
+
+FROM debian:jessie
+
+MAINTAINER thesamet@gmail.com
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y \
     && DEBIAN_FRONTEND=noninteractive apt-get -yy -q \

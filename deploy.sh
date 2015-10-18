@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -e
-set -o xtrace
 
 docker login -e thesamet@gmail.com -u thesamet -p $BINTRAY_API_KEY https://thesamet-docker-registry.bintray.io
 echo Pushing $IMAGE_NAME

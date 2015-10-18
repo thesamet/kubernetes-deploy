@@ -15,7 +15,9 @@ script:
 - cp kubernetes/_output/dockerized/bin/linux/amd64/hyperkube hyperkube/hyperkube
 - docker build -t $IMAGE_NAME hyperkube
 - docker push $IMAGE_NAME
-- curl -uthesamet:$BINTRAY_API_KEY -X PUT "https://api.bintray.com/content/thesamet/kubernetes/kubelet/$LABEL-${TRAVIS-COMMIT:8}/linux-amd64/kubelet?publish=1" -T kubernetes/_output/dockerized/bin/linux/amd64/kubelet
-- curl -uthesamet:$BINTRAY_API_KEY -X PUT "https://api.bintray.com/content/thesamet/kubernetes/kubelet/$LABEL-${TRAVIS-COMMIT:8}/linux-amd64/kubectl?publish=1" -T kubernetes/_output/dockerized/bin/linux/amd64/kubectl
-- curl -uthesamet:$BINTRAY_API_KEY -X PUT "https://api.bintray.com/content/thesamet/kubernetes/kubelet/$LABEL-${TRAVIS-COMMIT:8}/darwin-amd64/kubectl?publish=1" -T kubernetes/_output/dockerized/bin/darwin/amd64/kubectl
+- curl -uthesamet:$BINTRAY_API_KEY -X PUT "https://api.bintray.com/content/thesamet/kubernetes/kubernetes/$LABEL-${TRAVIS-COMMIT:8}/linux-amd64/kubelet?publish=1" -T kubernetes/_output/dockerized/bin/linux/amd64/kubelet
+- curl -uthesamet:$BINTRAY_API_KEY -X PUT "https://api.bintray.com/content/thesamet/kubernetes/kubernetes/$LABEL-${TRAVIS-COMMIT:8}/linux-amd64/kubectl?publish=1" -T kubernetes/_output/dockerized/bin/linux/amd64/kubectl
+- curl -uthesamet:$BINTRAY_API_KEY -X PUT "https://api.bintray.com/content/thesamet/kubernetes/kubernetes/$LABEL-${TRAVIS-COMMIT:8}/darwin-amd64/kubectl?publish=1" -T kubernetes/_output/dockerized/bin/darwin/amd64/kubectl
+- echo Pushed image $IMAGE_NAME
+- echo Uploaded artifacts for $LABEL-${TRAVIS_COMMIT:8}
 

@@ -3,8 +3,8 @@ go:
 - 1.4
 env:
   global:
-  - KUBERNETES_REPO=https://github.com/kubernetes/kubernetes.git
-  - KUBERNETES_COMMIT=bd56609691112cf026f77d017e89b771635bfdd6
+  - KUBERNETES_REPO=https://github.com/thesamet/kubernetes.git
+  - KUBERNETES_COMMIT=v1.1.0-ta-1
   - LABEL=v1.1.0
   - KUBE_REV=${LABEL}-${TRAVIS_COMMIT:0:8}
   - IMAGE_NAME=thesamet-docker-registry.bintray.io/kubernetes/hyperkube:$KUBE_REV

@@ -12,7 +12,7 @@ services:
 
 script:
 - git clone https://github.com/kubernetes/kubernetes.git --branch v1.1.0
-- cd kubernetes && ./build/run.sh hack/build-go.sh
+- cd kubernetes && KUBE_SKIP_CONFIRMATIONS=y ./build/run.sh hack/build-go.sh
 - docker build -t $IMAGE_NAME .
 - docker push $IMAGE_NAME
 

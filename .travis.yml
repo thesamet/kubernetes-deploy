@@ -1,0 +1,18 @@
+sudo: required
+
+go:
+- 1.4
+
+env:
+  global:
+  - IMAGE_NAME=thesamet-docker-registry.bintray.io/kubernetes/hyperkube:${TRAVIS_COMMIT:8}
+
+services:
+- docker
+
+script:
+- git clone https://github.com/kubernetes/kubernetes.git --branch v1.1.0
+- cd kubernetes && ./build/run.sh hack/build-go.sh
+- docker build -t $IMAGE_NAME .
+- docker push $IMAGE_NAME
+

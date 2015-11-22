@@ -4,8 +4,8 @@ go:
 env:
   global:
   - KUBERNETES_REPO=https://github.com/thesamet/kubernetes.git
-  - KUBERNETES_COMMIT=tags/v1.1.0-ta-1
-  - LABEL=v1.1.0
+  - KUBERNETES_COMMIT=tags/v1.1.2
+  - LABEL=v1.1.2
   - KUBE_REV=${LABEL}-${TRAVIS_COMMIT:0:8}
   - IMAGE_NAME=thesamet-docker-registry.bintray.io/kubernetes/hyperkube:$KUBE_REV
   - secure: gchVcyvGsipK0X1ZjgyM0NG0J+J6RraENKKELkS+LaIxVHYQSHMD5MCyAzWWZunIHQlIAYZ5o9Jt4ih2QyuaWnRYRk+S6TlCaygul9JNHJjAZsMfyWJooRNLjE4uyd0RrTQJdtXQxT/CsVlhlleutr5NcZJRg+n5w75XQ7bnLOBmIC7ueTuvX/K0EzCgQiJdvTxzNyOoHUspiM25dgfn35oMLkAVXc1E4nvYMu/S9ym6SnXn5GkhnU1Y2uAJTHzH4LlcDw/oJSL9wWIz7NIHmIZ4580DBsat9AYepyR3o08A58mWfPW4Gbqx0/Wm9OF7JFZw59rFoZ6vJj4VOfNvW4MBMVrA95ze00dQRAQ2On8TA75z8Wgb+5z5JZyzuVANmOGV27YcfaG2p326XC8zLHp4zMpHhnh0t7IxPkZgWck6W7Oji5sr+5XdIeoyEKclbMUqn9NcleU1U48ilxTFSZSeDthypfaX5gcYtrEGmFtBYrWtIiPGEYIIhcZRXDfSRDtsvR+HzI85MI8e2SS5slKKT+oeZe+l03bbBUYpAhIqwQYfdGV6Y3KkesorRibHF8EruauMHRo4lXeNFxuRwUhDxr/iE4C4AQDf2zTLqBvLk6yUeOx4uTlzihsfbzBJO4RlGsOhxTbHzdRNZMWfPEi4j3B/kaaNM13i4lfjvEQ=
